@@ -1,11 +1,28 @@
-<h1> Welcome to blog </h1>
+<div class="row">
+    <div class="col-md-12">
+        <h1> Welcome to blog </h1>
+    </div>
+</div>
 
 <div class="row">
-<div class="col-md-6">
-    <%= gravatar_for @user %>
-</div>
-<div class="col-md-6">
-    <p><%= @user.username %>'s articles</p>
-    <p><%= render 'articles/article', obj: @user.articles %></p>
-</div>
+    <div class="col-md-6">
+        <p>
+            <%= gravatar_for @user %>
+        </p>
+        <h4>
+            <%= @user.username %>
+        </h4>
+        <p>
+            This user has
+            <%= pluralize(@user.articles.count, "article") %>
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h4>
+            <%= @user.username %>'s articles:
+        </h4>
+        <p>
+            <%= render 'articles/article', obj: @user.articles %>
+        </p>
+    </div>
 </div>

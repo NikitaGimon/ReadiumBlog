@@ -11,10 +11,11 @@
 <p>
     Description: <%= @article.description %>
 </p>
-<% if logged_in? && current_user == @article.user %>
+
     <p>
+    <% if logged_in? && current_user == @article.user %>
         <%= link_to "Edit", edit_article_path(@article), class:"btn btn-warning" %> | 
-        <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %> |
+    <% end %>
+        <%= link_to "All articles", articles_path, class:"btn btn-primary" %> 
     </p>
-<% end %>
-<%= link_to "All articles", articles_path, class:"btn btn-primary" %> 

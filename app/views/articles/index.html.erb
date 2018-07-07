@@ -1,11 +1,15 @@
-<h1> All articles </h1>
-<p>
-    <%= link_to "Create new article", new_article_path, class:"btn btn-success" %>
-</p>
-<div class="align-center">
-    <%= will_paginate @articles, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1> All articles </h1>
+    </div>
 </div>
-<%= render 'articles/article', obj: @articles %>
-<div align="center">
-    <%= will_paginate @articles, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<div class="row">
+    <div class="col-md-12">
+        <%= render 'articles/article', obj: @articles %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 mt-3">
+        <%= will_paginate @articles, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+    </div>
 </div>
