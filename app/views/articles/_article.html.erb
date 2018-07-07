@@ -1,0 +1,15 @@
+<% obj.each do |article| %>
+    <p>
+        Id: <%= article.id %> 
+    </p>
+    <p>
+        Title: <%= link_to article.title, article_path(article) %> 
+    </p>
+    <p>Description: <%= article.description %> </p>
+    <p>Created by: <%= article.user.username %> (<%= time_ago_in_words(article.created_at) %> ago)</p>
+    <p>Lastly updated: (<%= time_ago_in_words(article.updated_at) %> ago) </p>
+<% if logged_in? && current_user == article.user %>
+    <p><%= link_to "Edit", edit_article_path(article), class:"btn btn-warning" %>  | <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %> </p>
+<% end %>
+    <hr>
+<% end %>

@@ -1,0 +1,15 @@
+<h1>Log in</h1>
+
+<%= form_for(:session, url: login_path) do |f| %>
+<p>
+<%= f.label :email %><br/>
+<%= f.email_field :email, placeholder: "Enter your email" %>
+</p>
+<p>
+<%= f.label :password %><br/>
+<%= f.password_field :password, placeholder: "Enter your password", autocomplete: "off" %>
+</p>
+<p>
+<%= f.submit "Login", class: "btn btn-primary" %>
+</p>
+<% end %>
