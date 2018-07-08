@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :articles
+    has_many :articles, dependent: :destroy
     before_save { self.email = email.downcase }
     validates :username, presence: true, length: { minimum: 3, maximum: 50}, 
                          uniqueness: {case_sensitive: false} #ignore cases, doesn't allows adding Joe joe
