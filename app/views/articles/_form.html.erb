@@ -1,4 +1,3 @@
-
 <%= form_for @article do |f| %>
     <form>
         <div class="form-group">
@@ -8,6 +7,11 @@
         <div class="form-group">
             <%= f.label :description %><br/>
                 <%= f.text_area :description, rows: 12, class:"form-control" %>
+        </div>
+        <div class="form-group">
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+                <% cb.label(class: "checkbox-inline input_checkbox mr-2") {cb.check_box(class: "checkbox") + " " + cb.text} %>
+                    <% end %>
         </div>
         <%= f.submit "Submit", class: "btn btn-primary"  %>
     </form>
