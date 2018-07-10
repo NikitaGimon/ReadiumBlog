@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-12">
+        <% if @category.errors.any? %>
+            <h2 class="panel-title">The following errors prevented the category from getting updated</h2>
+            <div class="panel-body">
+            <ul>
+                <% @category.errors.full_messages.each do |msg| %>
+                    <li>
+                        <%= msg %>
+                    </li>
+                    <% end %>
+            </ul>
+            </div>
+            <% end %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <%= form_for @category do |f| %>
+            <form>
+                <div class="form-group">
+                    <%= f.label :name %><br/>
+                        <%= f.text_field :name, placeholder: "Enter name of category", class:"form-control" %>
+                </div>
+                <%= f.submit "Update", class: "btn btn-primary" %>
+            </form>
+            <% end %>
+    </div>
+</div>

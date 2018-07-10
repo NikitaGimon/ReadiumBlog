@@ -20,6 +20,12 @@
                             <h5>
                                 <%= link_to category.name, category_path(category) %>
                             </h5>
+                            <p>
+                                <%= pluralize(category.articles.count, "article") %>
+                            </p>
+                            <% if logged_in? and current_user.admin? %>
+                                <%= link_to "Edit category", edit_category_path(category), class: "btn btn-warning" %>
+                            <% end %>
                         </div>
                     </div>
                 </div>
